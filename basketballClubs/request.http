@@ -1,0 +1,51 @@
+### wyszukanie wszystkich klubów
+GET http://localhost:8082/basketballLeague/clubs
+
+### wyszukanie konkretnego klubu
+GET  http://localhost:8082/basketballLeague/clubs/6ff60db2-5a7f-429a-b5df-cc2507bdec3f
+
+### wyszukanie klubu którego nie ma
+GET http://localhost:8082/basketballLeague/clubs/b5692a44-c98f-4fb7-83a6-c3274f984d65
+
+### usunięcie konkretnego klubu wraz z zawodnikami
+DELETE http://localhost:8082/basketballLeague/clubs/356eddaa-cb68-41a6-bf4b-5f75bd2c146e
+
+### usunięcie klubu którego nie ma
+DELETE http://localhost:8082/basketballLeague/clubs/81f5e8bb-2d6a-4a9e-aa9e-933b44e5ebac
+
+### dodanie nowego klubu
+PUT http://localhost:8082/basketballLeague/clubs/f27c67e9-bb75-485a-ad7f-f517f6ccde6d
+Content-Type: application/json
+
+{
+  "name": "nowy klub",
+  "foundationYear": 1920
+}
+
+### dodanie klubu który już jest
+PUT http://localhost:8082/basketballLeague/clubs/6ff60db2-5a7f-429a-b5df-cc2507bdec3f
+Content-Type: application/json
+
+{
+  "name": "istniejacy klub",
+  "foundationYear": 1933
+}
+
+### aktualizacja klubu
+PATCH http://localhost:8082/basketballLeague/clubs/5f17dd93-c7b6-4d8b-bd34-b07728f7c66f
+Content-Type: application/json
+
+{
+  "name": "coco jambo",
+  "foundationYear": 1800
+}
+
+### aktualizacja klubu którego nie ma
+PATCH http://localhost:8082/basketballLeague/clubs/609fd27b-de6b-410b-a660-e22b014de0a6
+Content-Type: application/json
+
+{
+  "name": "Los Santos Lakers",
+  "foundationYear": 1999
+}
+

@@ -1,0 +1,13 @@
+<div id="club_new">
+  <h1 id="title">Add Basketball Club</h1>
+  <form *ngIf="new_club" id="edit_form">
+    <label for="id" class="label">uuid: </label>
+    <input type="text" id="id" name="id" [(ngModel)]="new_club.uuid" class="input"><br>
+    <label for="name" class="label">name: </label>
+    <input type="text" id="name" name="name" [(ngModel)]="new_club.name" class="input"><br>
+    <label for="foundationYear" class="label">year of foundation: </label>
+    <input type="text" id="foundationYear" name="foundationYear" [(ngModel)]="new_club.foundationYear" class="input"><br>
+    <input type="submit" value="add basketball club" (click)="OnBasketballClubAdd()" id="submit">
+  </form>
+</div>
+

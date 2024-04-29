@@ -1,0 +1,77 @@
+### wyszukanie wszystkich zawodników
+GET http://localhost:8081/basketballLeague/players
+
+### wyszukanie konkretnego zawodnika
+GET http://localhost:8081/basketballLeague/players/d6696859-3d8f-495b-93f9-4212a2d21575
+
+### wyszukanie zawodnika którego nie ma
+GET http://localhost:8081/basketballLeague/players/c3ba6561-a016-47a6-9cca-ea850032525d
+
+### wyszukanie zawodników z konkretnego klubu
+GET http://localhost:8081/basketballLeague/clubs/356eddaa-cb68-41a6-bf4b-5f75bd2c146e/players
+
+### wyszukanie zawodników z klubu którego nie ma
+GET http://localhost:8081/basketballLeague/clubs/b8d472b3-83b7-4aa1-9547-fe3946ab67e8/players
+
+### wyszukanie zawodników z klubu, który nie ma zawodników
+GET http://localhost:8081/basketballLeague/clubs/f27c67e9-bb75-485a-ad7f-f517f6ccde6d/players
+
+### usuwanie konkretnego gracza
+DELETE http://localhost:8081/basketballLeague/players/4ed86695-65e8-461b-bb18-79badd15d2be
+
+### usuwanie gracza którego nie ma
+DELETE http://localhost:8081/basketballLeague/players/174339bd-3f35-4cdf-a5c4-7c6b6d96826f
+
+### dodanie zawodnika
+PUT http://localhost:8081/basketballLeague/players/d6696859-3d8f-495b-93f9-4212a2d21575
+Content-Type: application/json
+
+{
+  "name": "Michael Jordan",
+  "height": 200,
+  "basketballClub": "f27c67e9-bb75-485a-ad7f-f517f6ccde6d"
+}
+
+### dodanie zawodnika który już jest
+PUT http://localhost:8081/basketballLeague/players/4ed86695-65e8-461b-bb18-79badd15d2be
+Content-Type: application/json
+
+{
+  "name": "Russell Westbrook",
+  "height": 185,
+  "basketballClub": "5f17dd93-c7b6-4d8b-bd34-b07728f7c66f"
+}
+
+### dodanie zawodnika do klubu który nie istnieje
+PUT http://localhost:8081/basketballLeague/players/a47d22fb-e534-44bc-b627-a8caf2b3ec3a
+Content-Type: application/json
+
+{
+  "name": "Stephen Curry",
+  "height": 195,
+  "basketballClub": "ef1a46cf-94a7-49b9-9f7c-b8b1c43c3d4e"
+}
+
+### aktualizacja zawodnika
+PATCH http://localhost:8081/basketballLeague/players/3edc20ee-4bf0-404c-9ea9-1b744a7560b8
+Content-Type: application/json
+
+{
+  "name": "Lebabu Jamas",
+  "height": 150
+}
+
+### aktualizacja zawodnika którego nie ma
+PATCH http://localhost:8081/basketballLeague/players/ae69a970-7bec-4a00-98b4-c0bba041a9a4
+Content-Type: application/json
+
+{
+  "name": "Damian Lillard",
+  "height": 140
+}
+
+### usunięcie konkretnego klubu wraz z zawodnikami
+DELETE http://localhost:8081/basketballLeague/clubs/356eddaa-cb68-41a6-bf4b-5f75bd2c146e
+
+### dodanie nowego klubu
+PUT http://localhost:8081/basketballLeague/clubs/f27c67e9-bb75-485a-ad7f-f517f6ccde6d

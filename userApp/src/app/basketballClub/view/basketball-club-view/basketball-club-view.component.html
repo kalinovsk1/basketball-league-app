@@ -1,0 +1,17 @@
+<div id="club_view">
+  <h1 id="title">Basketball Club Information</h1>
+  <p *ngIf="view_club" class="information">name:  {{view_club.name}}</p>
+  <p *ngIf="view_club" class="information">year of foundation:  {{view_club.foundationYear}}</p>
+  <h3 id="players">players:</h3>
+  <table *ngIf="view_players" id="player_table">
+    <tr *ngFor="let player of view_players.players" id="player">
+      <a id="player_name">{{player.name}}</a>
+      <a *ngIf="view_club" [routerLink]="['/basketballClubs/' + view_club.uuid + '/editPlayer/' + player.uuid]" class="elements">  edit  </a>
+      <a *ngIf="view_club" [routerLink]="['/basketballClubs/' + view_club.uuid + '/viewPlayer/' + player.uuid]" class="elements">  view  </a>
+      <button (click)="OnPlayerDelete(player)" id="delete">delete</button>
+    </tr>
+  </table>
+  <br>
+  <a *ngIf="view_club" [routerLink]="['/basketballClubs/' + view_club.uuid + '/newPlayer']" id="add">add new player</a>
+</div>
+

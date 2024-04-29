@@ -1,0 +1,14 @@
+<div id="club_list">
+  <h1 id="title">Basketball Clubs</h1>
+  <table *ngIf="clubs" id="club_table">
+    <tr *ngFor="let club of clubs.basketballClubs" id="club">
+      <a id="club_name">{{club.name}}</a>
+      <a [routerLink]="['/basketballClubs/' + club.uuid + '/edit']" class="elements">  edit  </a>
+      <a [routerLink]="['/basketballClubs/' + club.uuid]" class="elements">  view  </a>
+      <button (click)="OnBasketballClubDelete(club)" id="delete">  delete  </button>
+    </tr>
+  </table>
+  <br>
+  <a [routerLink]="['/basketballClubs/new']" id="add">add new club</a>
+</div>
+

@@ -1,0 +1,39 @@
+#club_edit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title{
+  color: white;
+  font-family: Arial;
+}
+
+#edit_form{
+  display: flex;
+  flex-direction: column;
+}
+
+.label{
+  font-family: Arial;
+  color: white;
+}
+
+.input{
+  font-family: Arial;
+  padding: 2px;
+  margin-top: 2px;
+  font-weight: bold;
+}
+
+#submit{
+  background-color: white;
+  padding: 5px;
+  color: black;
+  font-family: Arial;
+  border-radius: 10px;
+  font-weight: bold;
+  border-style: outset;
+  border-color: red;
+  border-width: medium;
+}

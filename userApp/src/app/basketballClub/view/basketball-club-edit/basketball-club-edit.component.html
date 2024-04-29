@@ -1,0 +1,10 @@
+<div id="club_edit">
+  <h1 id="title">Edit Basketball Club</h1>
+  <form *ngIf="edit_club" id="edit_form">
+    <label for="name" class="label">name: </label>
+    <input type="text" id="name" name="name" [(ngModel)]="edit_club.name" class="input"><br>
+    <label for="foundationYear" class="label">year of foundation: </label>
+    <input type="text" id="foundationYear" name="foundationYear" [(ngModel)]="edit_club.foundationYear" class="input"><br>
+    <input type="submit" value="edit club" (click)="OnBasketballClubEdit()" id="submit">
+  </form>
+</div>

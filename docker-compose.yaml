@@ -1,0 +1,79 @@
+version: '3'
+
+services:
+  player-db:
+    container_name: player-db
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_USER: "player"
+      POSTGRES_PASSWORD: "player_password"
+      POSTGRES_DB: "player_db"
+    volumes:
+      - player-db:/var/lib/postgresql/data
+
+  basketball-club-db:
+    container_name: basketball-club-db
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_USER: "basketball_club"
+      POSTGRES_PASSWORD: "basketball_club_password"
+      POSTGRES_DB: "basketball_club_db"
+    volumes:
+      - basketball-club-db:/var/lib/postgresql/data
+
+  players:
+    build:
+      context: ./basketballPlayers
+      dockerfile: Dockerfile
+    container_name: players
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://player-db:5432/player_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "player"
+      SPRING_DATASOURCE_PASSWORD: "player_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+
+
+  basketball-clubs:
+    build:
+      context: ./basketballClubs
+      dockerfile: Dockerfile
+    container_name: basketball-clubs
+    restart: always
+    environment:
+      PLAYER_URL: "http://players:8080"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://basketball-club-db:5432/basketball_club_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "basketball_club"
+      SPRING_DATASOURCE_PASSWORD: "basketball_club_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+  
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: gateway
+    restart: always
+    environment:
+      GATEWAY_HOST: "gateway:8080"
+      PLAYER_URL: "http://players:8080"
+      BASKETBALL_CLUB_URL: "http://basketball-clubs:8080"
+
+  angular:
+    build:
+      context: ./userApp
+      dockerfile: Dockerfile
+    container_name: angular
+    restart: always
+    environment:
+      API_URL: "http://gateway:8080"
+    ports:
+      - 8087:80
+
+volumes:
+  player-db:
+  basketball-club-db:
+    

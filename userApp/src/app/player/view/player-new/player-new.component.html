@@ -1,0 +1,13 @@
+<div id="player_new">
+  <h1 id="title">Add Player</h1>
+  <form *ngIf="new_player" id="edit_form">
+    <label for="id" class="label">uuid: </label>
+    <input type="text" id="id" name="id" [(ngModel)]="new_player.uuid" class="input"><br>
+    <label for="name" class="label">name: </label>
+    <input type="text" id="name" name="name" [(ngModel)]="new_player.name" class="input"><br>
+    <label for="height" class="label">height: </label>
+    <input type="text" id="height" name="height" [(ngModel)]="new_player.height" class="input"><br>
+    <input type="submit" value="add new player" (click)="OnPlayerAdd()" id="submit">
+  </form>
+</div>
+

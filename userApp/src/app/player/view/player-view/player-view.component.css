@@ -1,0 +1,16 @@
+#player_view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title{
+  color: white;
+  font-family: Arial;
+}
+
+.information{
+  color: white;
+  font-family: Arial;
+  border-bottom-style: groove;
+}

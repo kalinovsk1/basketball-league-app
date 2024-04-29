@@ -1,0 +1,68 @@
+#club_list{
+  display: flex;
+  flex-direction: column;
+}
+
+#title{
+  color: white;
+  font-family: Arial;
+  align-self: center;
+}
+
+#club_table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#club{
+  display: grid;
+  width: fit-content;
+  background-color: white;
+  text-align: center;
+  color: black;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: Arial;
+  box-shadow: 5px 5px;
+}
+
+#club_name{
+  font-weight: bold;
+  padding: 5px;
+}
+
+.elements{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#delete{
+  font-family: Arial;
+  background-color: black;
+  color: red;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: medium;
+}
+
+#add{
+  background-color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  font-family: Arial;
+  border-radius: 10px;
+  font-weight: bold;
+  border-style: outset;
+  border-color: red;
+  border-width: thick;
+}
